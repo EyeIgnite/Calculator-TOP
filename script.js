@@ -1,3 +1,7 @@
+const firstNumber = 0;
+const operator = '';
+const secondNumber = 0; 
+
 function add(a, b, ...numbers) {
   let sum = a + b;
 
