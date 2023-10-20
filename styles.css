@@ -49,6 +49,7 @@ input {
   justify-content: center;
   align-items: flex-start;
   margin-top: -60px;
+  padding-bottom: 10px;
 }
 
 button {
@@ -57,6 +58,8 @@ button {
   cursor: pointer;
   margin: -5px 1px;
   border-radius: .4rem;
+  border: 1px solid black;
+  font-size: 25px;
 }
 
 .zero {
@@ -67,10 +70,22 @@ button {
   background-color: lightgray;
 }
 
+.grey:active {
+  background-color: white;
+}
+
 .orange {
-  background-color: orange;
+  background-color: #ed7014;
+}
+
+.orange:active {
+  background-color: #fcae1e;
 }
 
 .dark-grey {
   background-color: gray;
+}
+
+.dark-grey:active {
+  background-color: darkgrey;
 }
