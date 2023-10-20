@@ -2,6 +2,21 @@ let firstNum = 0;
 let op = '';
 let secondNum = 0; 
 
+function operate(num1, op, num2) {
+  if (op === '+') {
+    add(num1, num2);
+  }
+  else if (op === '-') {
+    subtract(num1, num2);
+  }
+  else if (op === '*') {
+    multiply(num1, num2); 
+  }
+  else if (op === '/') {
+    divide(num1, num2);
+  }
+}
+
 function add(a, b, ...numbers) {
   let sum = a + b;
 
@@ -35,7 +50,7 @@ function multiply(a, b, ...numbers) {
 console.log(multiply(2, 4, 10, 10));
 
 
-function division(a, b, ...numbers) {
+function divide(a, b, ...numbers) {
   let sum = a / b;
 
   for (const num of numbers) {
