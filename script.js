@@ -23,7 +23,7 @@ function operate(...args) {
   }
   return result;
 }
-console.log(operate(2, '+', 5, '+', 10, '-', 7));
+console.log(operate(2, '+', 5, '+', 10, '-', 7, '*', 2, '/', 5));
 
 function add(a, b, ...numbers) {
   let sum = a + b;
