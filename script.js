@@ -33,8 +33,6 @@ function add(a, b, ...numbers) {
   }
   return sum;
 }
-console.log(add(1000, 5000, 45, 60));
-
 
 function subtract(a, b, ...numbers) {
   let sum = a - b;
@@ -44,8 +42,6 @@ function subtract(a, b, ...numbers) {
   }
   return sum;
 }
-console.log(subtract(10000, 5000, 10, 10, 10));
-
 
 function multiply(a, b, ...numbers) {
   let sum = a * b;
@@ -55,8 +51,6 @@ function multiply(a, b, ...numbers) {
   }
   return sum;
 }
-console.log(multiply(2, 4, 10, 10));
-
 
 function divide(a, b, ...numbers) {
   let sum = a / b;
@@ -66,4 +60,3 @@ function divide(a, b, ...numbers) {
   }
   return sum;
 }
-console.log(divide(100, 2));
