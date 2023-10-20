@@ -39,7 +39,7 @@ input {
   border: 2px solid black;
   height: 70%;
   width: 90%;
-  background-color: grey;
+  background-color: lightgoldenrodyellow;
   border-radius: .4rem;
 }
 
@@ -61,4 +61,16 @@ button {
 
 .zero {
   width: 178px;
+}
+
+.grey {
+  background-color: lightgray;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.dark-grey {
+  background-color: gray;
 }
