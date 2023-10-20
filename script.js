@@ -1,6 +1,6 @@
-let firstNumber = 0;
-let operator = '';
-let secondNumber = 0; 
+let firstNum = 0;
+let op = '';
+let secondNum = 0; 
 
 function add(a, b, ...numbers) {
   let sum = a + b;
