@@ -1,3 +1,6 @@
+let display = document.querySelector('input');
+display.value = '123456';
+
 let firstNum = 0;
 let op = '';
 let secondNum = 0; 
