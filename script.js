@@ -2,22 +2,28 @@ let firstNum = 0;
 let op = '';
 let secondNum = 0; 
 
-function operate(num1, op, num2) {
-  if (op === '+') {
-    return add(num1, num2);
-  }
-  else if (op === '-') {
-    return subtract(num1, num2);
-  }
-  else if (op === '*') {
-    return multiply(num1, num2); 
-  }
-  else if (op === '/') {
-    return divide(num1, num2);
-  }
-}
+function operate(...args) {
+  let result = args[0];
 
-console.log(operate(2, '+', 5, '+', 10));
+  for (let i = 1; i < args.length; i++) {
+    const item = args[i];
+
+    if (item === '+') {
+      result = add(result, args[i + 1])
+    }
+    else if (item === '-') {
+      result = subtract(result, args[i + 1]);
+    }
+    else if (item === '*') {
+      result = multiply(result, args[i + 1]); 
+    }
+    else if (item === '/') {
+      result = divide(result, args[i + 1]);
+    }
+  }
+  return result;
+}
+console.log(operate(2, '+', 5, '+', 10, '-', 7));
 
 function add(a, b, ...numbers) {
   let sum = a + b;
