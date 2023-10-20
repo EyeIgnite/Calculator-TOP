@@ -43,8 +43,22 @@ input {
   border-radius: .4rem;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -60px;
+}
+
 button {
-  width: 60px;
-  height: 60px;
+  width: 88px;
+  height: 65px;
   cursor: pointer;
+  margin: 1px;
+  border-radius: .4rem;
+}
+
+.zero {
+  width: 44%;
 }
