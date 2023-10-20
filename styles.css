@@ -76,6 +76,7 @@ button {
 
 .orange {
   background-color: #ed7014;
+  color: white;
 }
 
 .orange:active {
@@ -84,6 +85,7 @@ button {
 
 .dark-grey {
   background-color: gray;
+  color: white;
 }
 
 .dark-grey:active {
