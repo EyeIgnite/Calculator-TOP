@@ -4,18 +4,20 @@ let secondNum = 0;
 
 function operate(num1, op, num2) {
   if (op === '+') {
-    add(num1, num2);
+    return add(num1, num2);
   }
   else if (op === '-') {
-    subtract(num1, num2);
+    return subtract(num1, num2);
   }
   else if (op === '*') {
-    multiply(num1, num2); 
+    return multiply(num1, num2); 
   }
   else if (op === '/') {
-    divide(num1, num2);
+    return divide(num1, num2);
   }
 }
+
+console.log(operate(2, '+', 5, '+', 10));
 
 function add(a, b, ...numbers) {
   let sum = a + b;
@@ -58,4 +60,4 @@ function divide(a, b, ...numbers) {
   }
   return sum;
 }
-console.log(division(100, 2));
+console.log(divide(100, 2));
