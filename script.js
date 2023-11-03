@@ -1,4 +1,24 @@
 let display = document.querySelector('input');
+let btn1 = document.querySelector('btn1');
+let btn2 = document.querySelector('btn2');
+let btn3 = document.querySelector('btn3');
+let btn4 = document.querySelector('btn4');
+let btn5 = document.querySelector('btn5');
+let btn6 = document.querySelector('btn6');
+let btn7 = document.querySelector('btn7');
+let btn8 = document.querySelector('btn8');
+let btn9 = document.querySelector('btn9');
+let btn0 = document.querySelector('btn0');
+let clearBtn = document.querySelector('clear');
+let negativeBtn = document.querySelector('negative');
+let remainderBtn = document.querySelector('remainder');
+let divideBtn = document.querySelector('divide');
+let multiplyBtn = document.querySelector('multiply');
+let minusBtn = document.querySelector('minus');
+let plusBtn = document.querySelector('plus');
+let decimalBtn = document.querySelector('decimal');
+let equalsBtn = document.querySelector('equals');
+
 
 let firstNum = 0;
 let op = '';
