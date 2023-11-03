@@ -38,16 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.operator').forEach(button => {
     button.addEventListener('click', () => {
-      if (firstNumber === null) {
-        firstNumber = parseFloat(displayValue);
-        operator = button.textContent;
-        displayValue = '';
-      } else {
-        calculateAndDisplay();
-        operator = button.textContent;
-      }
+        if (firstNumber === null) {
+            firstNumber = parseFloat(displayValue);
+            operator = button.textContent;
+            displayValue = '';
+        } else {
+            if (displayValue !== '') {
+                const secondNumber = parseFloat(displayValue);
+                firstNumber = operate(operator, firstNumber, secondNumber);
+                displayValue = '';
+                operator = button.textContent;
+                display.value = firstNumber;
+            } else {
+              // If no new number is entered, double the displayed value
+              firstNumber = operate(operator, firstNumber, firstNumber);
+              display.value = firstNumber;
+          }
+        }
     });
-  });
+ });
 
   document.getElementById('equals').addEventListener('click', () => {
     if (firstNumber !== null && operator !== null) {
