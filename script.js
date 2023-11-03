@@ -28,6 +28,18 @@ function appendToDisplay(number) {
 }
 
 btn1.addEventListener('click', () => appendToDisplay(1));
+btn2.addEventListener('click', () => appendToDisplay(2));
+btn3.addEventListener('click', () => appendToDisplay(3));
+btn4.addEventListener('click', () => appendToDisplay(4));
+btn5.addEventListener('click', () => appendToDisplay(5));
+btn6.addEventListener('click', () => appendToDisplay(6));
+btn7.addEventListener('click', () => appendToDisplay(7));
+btn8.addEventListener('click', () => appendToDisplay(8));
+btn9.addEventListener('click', () => appendToDisplay(9));
+btn0.addEventListener('click', () => appendToDisplay(0));
+// btn1.addEventListener('click', () => appendToDisplay(1));
+// btn1.addEventListener('click', () => appendToDisplay(1));
+// btn1.addEventListener('click', () => appendToDisplay(1));
 
 function operate(...args) {
   let result = args[0];
