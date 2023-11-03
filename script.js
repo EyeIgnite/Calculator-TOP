@@ -1,108 +1,122 @@
-let display = document.querySelector('input');
-let btn1 = document.querySelector('#btn1');
-let btn2 = document.querySelector('#btn2');
-let btn3 = document.querySelector('#btn3');
-let btn4 = document.querySelector('#btn4');
-let btn5 = document.querySelector('#btn5');
-let btn6 = document.querySelector('#btn6');
-let btn7 = document.querySelector('#btn7');
-let btn8 = document.querySelector('#btn8');
-let btn9 = document.querySelector('#btn9');
-let btn0 = document.querySelector('#btn0');
-let clearBtn = document.querySelector('#clear');
-let negativeBtn = document.querySelector('#negative');
-let remainderBtn = document.querySelector('#remainder');
-let divideBtn = document.querySelector('#divide');
-let multiplyBtn = document.querySelector('#multiply');
-let minusBtn = document.querySelector('#minus');
-let plusBtn = document.querySelector('#plus');
-let decimalBtn = document.querySelector('#decimal');
-let equalsBtn = document.querySelector('#equals');
+document.addEventListener('DOMContentLoaded', () => {
+  let displayValue = '';
+  let firstNumber = null;
+  let operator = null;
 
-let displayValue = '0';
-let firstNum = 0;
-let op = '';
-let secondNum = 0; 
+  const display = document.getElementById('display');
 
-function updateDisplay() {
-  display.value = displayValue;
-}
-
-function setDisplay(newValue) {
-  displayValue = newValue;
-  updateDisplay();
-}
-
-function appendToDisplay(number) {
-  display.value += number;
-}
-
-btn1.addEventListener('click', () => appendToDisplay(1));
-btn2.addEventListener('click', () => appendToDisplay(2));
-btn3.addEventListener('click', () => appendToDisplay(3));
-btn4.addEventListener('click', () => appendToDisplay(4));
-btn5.addEventListener('click', () => appendToDisplay(5));
-btn6.addEventListener('click', () => appendToDisplay(6));
-btn7.addEventListener('click', () => appendToDisplay(7));
-btn8.addEventListener('click', () => appendToDisplay(8));
-btn9.addEventListener('click', () => appendToDisplay(9));
-btn0.addEventListener('click', () => appendToDisplay(0));
-
-function operate(...args) {
-  let result = args[0];
-
-  for (let i = 1; i < args.length; i++) {
-    const item = args[i];
-
-    if (item === '+') {
-      result = add(result, args[i + 1])
-    }
-    else if (item === '-') {
-      result = subtract(result, args[i + 1]);
-    }
-    else if (item === '*') {
-      result = multiply(result, args[i + 1]); 
-    }
-    else if (item === '/') {
-      result = divide(result, args[i + 1]);
+  function calculateAndDisplay() {
+    if (firstNumber !== null && operator !== null) {
+      const secondNumber = parseFloat(displayValue);
+      
+      if (operator === '/' && secondNumber === 0) {
+        displayValue = 'Error: Division by zero';
+        display.value = displayValue;
+      } else {
+        displayValue = operate(operator, firstNumber, secondNumber);
+        display.value = displayValue;
+        firstNumber = parseFloat(displayValue);
+      }
     }
   }
-  return result;
-}
-console.log(operate(2, '+', 5, '+', 10, '-', 7, '*', 2, '/', 5));
 
-function add(a, b, ...numbers) {
-  let sum = a + b;
+  document.querySelectorAll('.number').forEach(button => {
+    button.addEventListener('click', () => {
+      if (displayValue.length < 10) {
+        displayValue += button.textContent;
+        display.value = displayValue;
+      }
+    });
+  });
 
-  for (const num of numbers) {
-    sum += num;
+  document.getElementById('clear').addEventListener('click', () => {
+    displayValue = '';
+    firstNumber = null;
+    operator = null;
+    display.value = '0';
+  });
+
+  document.querySelectorAll('.operator').forEach(button => {
+    button.addEventListener('click', () => {
+      if (firstNumber === null) {
+        firstNumber = parseFloat(displayValue);
+        operator = button.textContent;
+        displayValue = '';
+      } else {
+        calculateAndDisplay();
+        operator = button.textContent;
+      }
+    });
+  });
+
+  document.getElementById('equals').addEventListener('click', () => {
+    if (firstNumber !== null && operator !== null) {
+      const secondNumber = parseFloat(displayValue);
+      displayValue = operate(operator, firstNumber, secondNumber);
+      display.value = displayValue;
+      firstNumber = null;
+      operator = null;
+    }
+  });
+
+  document.getElementById('backspace').addEventListener('click', () => {
+    if (displayValue.length > 0) {
+      displayValue = displayValue.slice(0, -1);
+      display.value = displayValue;
+    }
+  });
+
+  document.getElementById('decimal').addEventListener('click', () => {
+    if (!displayValue.includes('.')) {
+      displayValue += '.';
+      display.value = displayValue;
+    }
+  });
+
+  document.getElementById('negative').addEventListener('click', () => {
+  if (displayValue !== '0') {
+    if (displayValue.charAt(0) === '-') {
+      displayValue = displayValue.slice(1); 
+    } else {
+      displayValue = '-' + displayValue; 
+    }
+    display.value = displayValue;
   }
-  return sum;
-}
+});
 
-function subtract(a, b, ...numbers) {
-  let sum = a - b;
-
-  for (const num of numbers) {
-    sum -= num;
+  function add(a, b) {
+    return a + b;
   }
-  return sum;
-}
 
-function multiply(a, b, ...numbers) {
-  let sum = a * b;
-
-  for (const num of numbers) {
-    sum *= num;
+  function subtract(a, b) {
+    return a - b;
   }
-  return sum;
-}
 
-function divide(a, b, ...numbers) {
-  let sum = a / b;
-
-  for (const num of numbers) {
-    sum /= num;
+  function multiply(a, b) {
+    return a * b;
   }
-  return sum;
-}
+
+  function divide(a, b) {
+    if (b === 0) {
+      display.value = 'Error';
+      return null;
+    }
+    return a / b;
+  }
+
+  function operate(operator, a, b) {
+    switch (operator) {
+      case '+':
+        return add(a, b);
+      case '-':
+        return subtract(a, b);
+      case '*':
+        return multiply(a, b);
+      case '/':
+        return divide(a, b);
+      default:
+        return null;
+    }
+  }
+});
+
