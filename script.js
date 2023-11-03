@@ -1,9 +1,12 @@
 let display = document.querySelector('input');
-display.value = '123456';
 
 let firstNum = 0;
 let op = '';
 let secondNum = 0; 
+
+function appendToDisplay(number) {
+  display.value += number;
+}
 
 function operate(...args) {
   let result = args[0];
