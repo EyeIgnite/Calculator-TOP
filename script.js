@@ -19,9 +19,19 @@ let plusBtn = document.querySelector('#plus');
 let decimalBtn = document.querySelector('#decimal');
 let equalsBtn = document.querySelector('#equals');
 
+let displayValue = '0';
 let firstNum = 0;
 let op = '';
 let secondNum = 0; 
+
+function updateDisplay() {
+  display.value = displayValue;
+}
+
+function setDisplay(newValue) {
+  displayValue = newValue;
+  updateDisplay();
+}
 
 function appendToDisplay(number) {
   display.value += number;
@@ -37,9 +47,6 @@ btn7.addEventListener('click', () => appendToDisplay(7));
 btn8.addEventListener('click', () => appendToDisplay(8));
 btn9.addEventListener('click', () => appendToDisplay(9));
 btn0.addEventListener('click', () => appendToDisplay(0));
-// btn1.addEventListener('click', () => appendToDisplay(1));
-// btn1.addEventListener('click', () => appendToDisplay(1));
-// btn1.addEventListener('click', () => appendToDisplay(1));
 
 function operate(...args) {
   let result = args[0];
