@@ -5,21 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const display = document.getElementById('display');
 
-  // function calculateAndDisplay() {
-  //   if (firstNumber !== null && operator !== null) {
-  //     const secondNumber = parseFloat(displayValue);
-      
-  //     if (operator === '/' && secondNumber === 0) {
-  //       displayValue = 'Error: Division by zero';
-  //       display.value = displayValue;
-  //     } else {
-  //       displayValue = operate(operator, firstNumber, secondNumber);
-  //       display.value = displayValue;
-  //       firstNumber = parseFloat(displayValue);
-  //     }
-  //   }
-  // }
-
   document.querySelectorAll('.number').forEach(button => {
     button.addEventListener('click', () => {
       if (displayValue.length < 10) {
